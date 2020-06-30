@@ -1,0 +1,22 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+  pull_request:
+    branches: [ staging ]
+
+jobs:
+  build:
+  
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - uses: sfdx-actions/setup-sfdx@v1
+        with:
+          sfdx-auth-url: ${{ secrets.AUTH_SECRET }}
+      - name: 'Convert Metadata'
+        run: sfdx force:source:convert --rootdir=force-app --outputdir=convert
+      - name: 'Run Test on Metadata'
+        run: sfdx force:mdapi:deploy --deploydir=convert -w 30
