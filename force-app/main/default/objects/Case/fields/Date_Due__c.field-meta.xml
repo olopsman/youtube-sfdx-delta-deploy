@@ -3,7 +3,7 @@
     <fullName>Date_Due__c</fullName>
     <encryptionScheme>None</encryptionScheme>
     <externalId>false</externalId>
-    <label>Date Due</label>
+    <label>Date Due Soon</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
